@@ -1,0 +1,10 @@
+groups:
+  - name: system-alerts
+    rules:
+      - alert: HighCPU
+        expr: node_cpu_seconds_total{mode="idle"} < 20
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          description: "CPU usage above 80%"
